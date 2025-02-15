@@ -5,49 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 18:53:36 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/10 19:10:06 by sdavi-al         ###   ########.fr       */
+/*   Created: 2025/02/15 16:09:03 by sdavi-al          #+#    #+#             */
+/*   Updated: 2025/02/15 16:11:56 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_node **stack)
+void	swap(t_stack *stack)
 {
 	t_node	*first;
 	t_node	*second;
-	t_node	*last;
 
-	if (!stack || !(*stack) || (*stack)->next == *stack)
+	if (!stack || stack->size < 2)
 		return ;
-	first = *stack;
+	first = stack->top;
 	second = first->next;
-	last = (*stack)->prev;
 
 	first->next = second->next;
-	first->next->prev = first;
-	second->prev = last;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
 	second->next = first;
-	last->next = second;
 	first->prev = second;
-	*stack = second;
+
+	stack->top = second;
+	if (stack->size == 2)
+		stack->bottom = first;
 }
 
-void	sa(t_node **a)
+void	sa(t_stack *stack_a)
 {
-	swap(a);
+	swap(stack_a);
 	ft_printf("sa\n");
 }
 
-void	sb(t_node **b)
+void	sb(t_stack *stack_b)
 {
-	swap(b);
+	swap(stack_b);
 	ft_printf("sb\n");
 }
 
-void	ss(t_node **a, t_node **b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	swap(a);
-	swap(b);
+	swap(stack_a);
+	swap(stack_b);
 	ft_printf("ss\n");
 }

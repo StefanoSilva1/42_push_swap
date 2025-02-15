@@ -5,69 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 19:29:55 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/11 13:10:55 by sdavi-al         ###   ########.fr       */
+/*   Created: 2025/02/15 16:46:11 by sdavi-al          #+#    #+#             */
+/*   Updated: 2025/02/15 16:47:12 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	remove_top_node(t_node **src)
+void	push(t_stack *src, t_stack *dest)
 {
-	t_node	*top;
-	t_node	*new_top;
-	t_node	*last;
+	t_node	*node;
 
-	top = *src;
-	new_top = top->next;
-	if (new_top == top)
-		*src = NULL;
-	else
-	{
-		last = top->prev;
-		new_top->prev = last;
-		last->next = new_top;
-		*src = new_top;
-	}
-}
-
-void	insert_top_node(t_node **dest, t_node *top)
-{
-	if (!(*dest))
-	{
-		*dest = top;
-		top->next = top;
-		top->prev = top;
-	}
-	else
-	{
-		top->next = *dest;
-		top->prev = (*dest)->prev;
-		(*dest)->prev->next = top;
-		(*dest)->prev = top;
-		*dest = top;
-	}
-}
-
-void	push(t_node **dest, t_node **src)
-{
-	t_node	*top;
-
-	if (!src || !(*src))
+	if (!src || !src->top)
 		return ;
-	top = *src;
-	remove_top_node(src);
-	insert_top_node(dest, top);
+	node = src->top;
+	src->top = node->next;
+	if (src->top)
+		src->top->prev = NULL;
+	else
+		src->bottom = NULL;
+	src->size--;
+
+	node->next = dest->top;
+	if (dest->top)
+		dest->top->prev = node;
+	else
+		dest->bottom = node;
+	dest->top = node;
+	node->prev = NULL;
+	dest->size++;
 }
 
-void	pa(t_node **a, t_node **b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
-	push(a, b);
+	push(stack_b, stack_a);
 	ft_printf("pa\n");
 }
 
-void	pb(t_node **b, t_node **a)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	push(b, a);
+	push(stack_a, stack_b);
 	ft_printf("pb\n");
 }

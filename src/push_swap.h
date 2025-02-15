@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 13:24:51 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/11 14:08:21 by sdavi-al         ###   ########.fr       */
+/*   Created: 2025/02/15 11:50:45 by sdavi-al          #+#    #+#             */
+/*   Updated: 2025/02/15 18:09:25 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -22,28 +23,35 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-void	append_node(t_node **stack, int value);
-void	print_stack(t_node *stack);
-int		check_duplicates(t_node *stack, int value);
-int		process_args(t_node **stack, char **argv);
-void	rotate(t_node **stack);
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
-void	remove_top_node(t_node **src);
-void	insert_top_node(t_node **dest, t_node *top);
-void	push(t_node **dest, t_node **src);
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **b, t_node **a);
-void	reverse_rotate(t_node **stack);
-void	rra(t_node **stack_a);
-void	rrb(t_node **stack_b);
-void	rrr(t_node **stack_a, t_node **stack_b);
-void	swap(t_node **stack);
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
-void	free_stack(t_node **stack);
-void	cleanup(t_node **stack_a, t_node **stack_b, int exit_code);
+typedef struct s_stack
+{
+	t_node	*top;
+	t_node	*bottom;
+	int		size;
+}	t_stack;
+
+t_stack		*init_stack(void);
+void		append_node(t_stack *stack, int value);
+void		print_stack(t_stack *stack, char stack_name);
+void		free_stack(t_stack *stack);
+void		cleanup(t_stack *stack_a, t_stack *stack_b);
+int			is_valid_number(char *str);
+int			is_duplicate(t_stack *stack, int value);
+void		swap_top(t_stack *stack);
+void		sa(t_stack *stack_a);
+void		sb(t_stack *stack_b);
+void		ss(t_stack *stack_a, t_stack *stack_b);
+void		push(t_stack *src, t_stack *dest);
+void		pa(t_stack *stack_a, t_stack *stack_b);
+void		pb(t_stack *stack_a, t_stack *stack_b);
+void		rotate(t_stack *stack);
+void		ra(t_stack *stack_a);
+void		rb(t_stack *stack_b);
+void		rr(t_stack *stack_a, t_stack *stack_b);
+void		rra(t_stack *stack_a);
+void		rrb(t_stack *stack_b);
+void		rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif
+
+
