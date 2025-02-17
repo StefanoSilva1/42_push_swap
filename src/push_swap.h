@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:50:45 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/15 18:09:25 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:44:40 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@
 typedef struct s_node
 {
 	int				value;
-	struct s_node	*prev;
+	int				index;
+	int				in_first_half;
+	int				cost;
+	struct s_node	*target;
 	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_stack
@@ -51,7 +55,15 @@ void		rr(t_stack *stack_a, t_stack *stack_b);
 void		rra(t_stack *stack_a);
 void		rrb(t_stack *stack_b);
 void		rrr(t_stack *stack_a, t_stack *stack_b);
+void		update_indices(t_stack *stack);
+void		find_targets(t_stack *stack_a, t_stack *stack_b);
+void		calculate_costs(t_stack *stack_a, t_stack *stack_b);
+void		update_indices(t_stack *stack);
+t_node *	find_target_for_node(t_stack *stack_b, int value);
+void		find_targets(t_stack *stack_a, t_stack *stack_b);
+void		calculate_costs(t_stack *stack_a, t_stack *stack_b);
 
 #endif
+
 
 

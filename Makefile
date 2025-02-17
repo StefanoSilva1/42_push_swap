@@ -6,7 +6,7 @@
 #    By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 18:59:34 by sdavi-al          #+#    #+#              #
-#    Updated: 2025/02/15 18:59:38 by sdavi-al         ###   ########.fr        #
+#    Updated: 2025/02/17 13:43:12 by sdavi-al         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC     =	src/main.c \
 			src/swap.c \
 			src/push.c \
 			src/rotate.c \
-			src/reverse_rotate.c
+			src/reverse_rotate.c \
+			src/indices_and_target.c
 			
 LIBFT_DIR = libft
 LIBFT   = $(LIBFT_DIR)/libft.a
