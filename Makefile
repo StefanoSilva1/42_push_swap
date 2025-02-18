@@ -6,7 +6,7 @@
 #    By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 18:59:34 by sdavi-al          #+#    #+#              #
-#    Updated: 2025/02/17 13:43:12 by sdavi-al         ###   ########.fr        #
+#    Updated: 2025/02/18 12:53:44 by sdavi-al         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,18 @@ NAME    = push_swap
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
-SRC     =	src/main.c \
-			src/handle_stack.c \
-			src/validate_args.c \
-			src/swap.c \
-			src/push.c \
-			src/rotate.c \
-			src/reverse_rotate.c \
-			src/indices_and_target.c
+SRC =	src/calculate_costs.c \
+		src/handle_stack.c \
+		src/indices_and_target.c \
+		src/main.c \
+		src/main_loop.c \
+		src/push.c \
+		src/push_initial_nodes.c \
+		src/reverse_rotate.c \
+		src/rotate.c \
+		src/small_stacks.c \
+		src/swap.c \
+		src/validate_args.c
 			
 LIBFT_DIR = libft
 LIBFT   = $(LIBFT_DIR)/libft.a

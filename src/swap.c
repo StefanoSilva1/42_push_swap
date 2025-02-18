@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:09:03 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/15 16:11:56 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:28:33 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,22 @@ void	swap(t_stack *stack)
 void	sa(t_stack *stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
+	update_indices(stack_a);
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	update_indices(stack_b);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
+	update_indices(stack_a);
+	update_indices(stack_b);
+	write(1, "ss\n", 3);
 }

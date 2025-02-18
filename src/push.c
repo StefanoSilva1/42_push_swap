@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:46:11 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/15 16:47:12 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:45:17 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@ void	push(t_stack *src, t_stack *dest)
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_b, stack_a);
-	ft_printf("pa\n");
+	update_indices(stack_a);
+	update_indices(stack_b);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	update_indices(stack_b);
+	update_indices(stack_a);
+	write(1, "pb\n", 3);
 }
