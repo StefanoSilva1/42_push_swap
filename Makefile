@@ -6,7 +6,7 @@
 #    By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/15 18:59:34 by sdavi-al          #+#    #+#              #
-#    Updated: 2025/02/18 12:53:44 by sdavi-al         ###   ########.fr        #
+#    Updated: 2025/02/18 17:16:29 by sdavi-al         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC =	src/calculate_costs.c \
 		src/rotate.c \
 		src/small_stacks.c \
 		src/swap.c \
-		src/validate_args.c
+		src/validate_args.c \
+		src/b_to_a.c
 			
 LIBFT_DIR = libft
 LIBFT   = $(LIBFT_DIR)/libft.a
