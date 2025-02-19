@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:46:11 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 10:45:17 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:28:47 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	push(t_stack *src, t_stack *dest)
 	else
 		src->bottom = NULL;
 	src->size--;
-
 	node->next = dest->top;
 	if (dest->top)
 		dest->top->prev = node;

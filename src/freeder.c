@@ -1,49 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_args.c                                    :+:      :+:    :+:   */
+/*   freeder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 15:53:32 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 07:12:02 by sdavi-al         ###   ########.fr       */
+/*   Created: 2025/02/19 10:38:45 by sdavi-al          #+#    #+#             */
+/*   Updated: 2025/02/19 10:47:04 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(char *str)
+void	cleanup(t_stack *stack_a, t_stack *stack_b, const char *msg)
 {
-	int		i;
-	long	value;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	value = ft_atol(str);
-	if (value < -2147483648 || value > 2147483647)
-		return (0);
-	return (1);
+	if (msg && msg[0] != '\0')
+		ft_printf("%s", msg);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	exit(1);
 }
 
-int	is_duplicate(t_stack *stack, int value)
+void	free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
+
+void	free_stack(t_stack *stack)
 {
 	t_node	*current;
+	t_node	*next_node;
 
 	current = stack->top;
 	while (current)
 	{
-		if (current->value == value)
-			return (1);
-		current = current->next;
+		next_node = current->next;
+		free(current);
+		current = next_node;
 	}
-	return (0);
+	free(stack);
 }

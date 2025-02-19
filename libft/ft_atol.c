@@ -6,31 +6,47 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:26:16 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/15 16:18:30 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 07:20:53 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atol(const char *str)
+long	check_overflow(long result, long prev, int sign)
 {
-	long	result;
-	int		sign;
+	if (result / 10 != prev)
+	{
+		if (sign == 1)
+			return (2147483647);
+		return (-2147483648);
+	}
+	return (result);
+}
 
-	result = 0;
+long	ft_atol(const char *str)
+{
+	int		i;
+	int		sign;
+	long	result;
+	long	prev;
+
+	i = 0;
 	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + (*str - '0');
-		str++;
+		prev = result;
+		result = result * 10 + (str[i] - '0');
+		result = check_overflow(result, prev, sign);
+		i++;
 	}
-	return (sign * result);
+	return (result * sign);
 }

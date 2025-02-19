@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:34:02 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 17:18:32 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:30:07 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,7 @@ t_node	*find_target_b(t_stack *stack_a, t_node *node_b)
 		current_a = current_a->next;
 	}
 	if (!best_target)
-	{
-		best_target = stack_a->top;
-		current_a = stack_a->top->next;
-		while (current_a)
-		{
-			if (current_a->value < best_target->value)
-				best_target = current_a;
-			current_a = current_a->next;
-		}
-	}
+		best_target = find_min_node(stack_a);
 	return (best_target);
 }
 
@@ -55,4 +46,3 @@ void	b_to_a(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 	}
 }
-

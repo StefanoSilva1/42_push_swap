@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:09:03 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 10:28:33 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:28:40 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ void	swap(t_stack *stack)
 		return ;
 	first = stack->top;
 	second = first->next;
-
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	first->prev = second;
-
 	stack->top = second;
 	if (stack->size == 2)
 		stack->bottom = first;

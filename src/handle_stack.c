@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 15:52:04 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 15:04:34 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:29:25 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_stack	*init_stack(void)
 	stack->cheapest_node = NULL;
 	return (stack);
 }
-
 
 void	append_node(t_stack *stack, int value)
 {
@@ -49,7 +48,6 @@ void	append_node(t_stack *stack, int value)
 	new_node->index = stack->size;
 }
 
-
 void	print_stack(t_stack *stack, char stack_name)
 {
 	t_node	*current;
@@ -61,19 +59,4 @@ void	print_stack(t_stack *stack, char stack_name)
 		ft_printf("%d\n", current->value);
 		current = current->next;
 	}
-}
-
-void	free_stack(t_stack *stack)
-{
-	t_node	*current;
-	t_node	*next_node;
-
-	current = stack->top;
-	while (current)
-	{
-		next_node = current->next;
-		free(current);
-		current = next_node;
-	}
-	free(stack);
 }

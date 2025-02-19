@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:24:42 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 17:14:21 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:30:27 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sort_3(t_stack *stack_a)
 {
-
 	if (stack_a->top->value > stack_a->top->next->value && \
 		stack_a->top->value < stack_a->bottom->value)
 		sa(stack_a);

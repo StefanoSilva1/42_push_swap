@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:57:57 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 13:50:26 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:28:55 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rotate(t_stack *stack)
 		return ;
 	first = stack->top;
 	last = stack->bottom;
-
 	stack->top = first->next;
 	stack->bottom = first;
 	stack->top->prev = NULL;

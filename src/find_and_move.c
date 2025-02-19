@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:55:44 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 13:55:45 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 06:40:13 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,32 +52,5 @@ void	move_node_to_top(t_stack *stack, t_node *node)
 			ra(stack);
 		else
 			rra(stack);
-	}
-}
-
-void	push_initial_nodes(t_stack *stack_a, t_stack *stack_b)
-{
-	t_node	*smallest;
-	t_node	*largest;
-	int		smallest_cost;
-	int		largest_cost;
-
-	smallest = find_min_node(stack_a);
-	largest = find_max_node(stack_a);
-	smallest_cost = m_cost(smallest->index, stack_a->size, smallest->up_half);
-	largest_cost = m_cost(largest->index, stack_a->size, largest->up_half);
-	if (smallest_cost <= largest_cost)
-	{
-		move_node_to_top(stack_a, smallest);
-		pb(stack_a, stack_b);
-		move_node_to_top(stack_a, largest);
-		pb(stack_a, stack_b);
-	}
-	else
-	{
-		move_node_to_top(stack_a, largest);
-		pb(stack_a, stack_b);
-		move_node_to_top(stack_a, smallest);
-		pb(stack_a, stack_b);
 	}
 }

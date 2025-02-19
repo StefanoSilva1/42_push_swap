@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:11:17 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 04:17:09 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:35:26 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	find_cheapest(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	move_together(t_stack *stack_a, t_stack *stack_b, t_node *cheapest, t_node *target)
+void	move_together(t_stack *stack_a, t_stack *stack_b, \
+		t_node *cheapest, t_node *target)
 {
 	int		cost_a;
 	int		cost_b;

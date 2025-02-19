@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:54:58 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/15 16:18:19 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 07:22:21 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_list
 }	t_list;
 
 int			ft_atoi(const char *str);
-int			ft_atol(const char *str);
+long		ft_atol(const char *str);
 void		ft_bzero(void *ptr, size_t n);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_isalnum(int c);
