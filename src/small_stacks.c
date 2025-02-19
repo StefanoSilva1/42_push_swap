@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:24:42 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 10:30:27 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:44:42 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 void	handle_small_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	if (is_sorted(stack_a))
-		exit (1);
+		cleanup(stack_a, stack_b, "");
 	if (stack_a->size == 2)
 	{
 		sa(stack_a);
-		exit (0);
+		cleanup(stack_a, stack_b, "");
 	}
 	else if (stack_a->size == 3)
 	{
 		sort_3(stack_a);
-		exit (0);
+		cleanup(stack_a, stack_b, "");
 	}
 	else if (stack_a->size == 4)
 	{
 		sort_4(stack_a, stack_b);
-		exit (0);
+		cleanup(stack_a, stack_b, "");
 	}
 }
