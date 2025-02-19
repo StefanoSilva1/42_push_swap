@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:11:17 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/18 17:32:47 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/19 04:17:09 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	move_cheapest_to_top(t_stack *stack_a, t_stack *stack_b)
 	target = cheapest->target;
 	if (!target)
 		return ;
-
 	limit = close_limit(stack_a, stack_b);
 	if ((cheapest->up_half == target->up_half) || \
 		(compute_difference(cheapest->index, target->index) < limit))
@@ -102,7 +101,6 @@ void	final_sort(t_stack *stack_a)
 
 	if (!stack_a || !stack_a->top || stack_a->size <= 1)
 		return ;
-
 	min = stack_a->top;
 	current = stack_a->top->next;
 	while (current)
@@ -111,7 +109,6 @@ void	final_sort(t_stack *stack_a)
 			min = current;
 		current = current->next;
 	}
-
 	while (stack_a->top != min)
 	{
 		if (min->up_half)
