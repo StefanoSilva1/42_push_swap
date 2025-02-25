@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_initial_nodes.c                               :+:      :+:    :+:   */
+/*   find_and_move.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:55:44 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 06:40:13 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:06:49 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,16 @@ void	move_node_to_top(t_stack *stack, t_node *node)
 			ra(stack);
 		else
 			rra(stack);
+	}
+}
+
+void	move_node_to_top_b(t_stack *stack, t_node *node)
+{
+	while (stack->top != node)
+	{
+		if (node->up_half)
+			rb(stack);
+		else
+			rrb(stack);
 	}
 }

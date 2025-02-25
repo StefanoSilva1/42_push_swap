@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:11:17 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 10:35:26 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:06:43 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	move_cheapest_to_top(t_stack *stack_a, t_stack *stack_b)
 		(compute_difference(cheapest->index, target->index) < limit))
 		move_together(stack_a, stack_b, cheapest, target);
 	move_node_to_top(stack_a, cheapest);
-	move_node_to_top(stack_b, target);
+	move_node_to_top_b(stack_b, target);
 	pb(stack_a, stack_b);
 }
 

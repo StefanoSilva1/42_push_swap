@@ -6,7 +6,7 @@
 /*   By: sdavi-al <sdavi-al@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:24:42 by sdavi-al          #+#    #+#             */
-/*   Updated: 2025/02/19 12:44:42 by sdavi-al         ###   ########.fr       */
+/*   Updated: 2025/02/20 08:44:01 by sdavi-al         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	sort_3(t_stack *stack_a)
 		sa(stack_a);
 		rra(stack_a);
 	}
+	else if (stack_a->top->value < stack_a->top->next->value && \
+		stack_a->top->value > stack_a->bottom->value)
+		rra(stack_a);
 	else if (stack_a->top->value > stack_a->bottom->value)
 		ra(stack_a);
-	else if (stack_a->top->value < stack_a->top->next->value && \
-			stack_a->top->value > stack_a->bottom->value)
-		rra(stack_a);
 	else if (stack_a->top->value < stack_a->top->next->value && \
 			stack_a->top->next->value > stack_a->bottom->value)
 	{
@@ -63,15 +63,13 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 
 void	handle_small_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	if (is_sorted(stack_a))
-		cleanup(stack_a, stack_b, "");
 	if (stack_a->size == 2)
 	{
 		sa(stack_a);
 		cleanup(stack_a, stack_b, "");
 	}
 	else if (stack_a->size == 3)
-	{
+	{	
 		sort_3(stack_a);
 		cleanup(stack_a, stack_b, "");
 	}
